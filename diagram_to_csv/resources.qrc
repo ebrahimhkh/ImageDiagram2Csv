@@ -1,0 +1,5 @@
+<RCC>
+    <qresource prefix="/root">
+        <file>9ring.jpg</file>
+    </qresource>
+</RCC>
