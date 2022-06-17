@@ -22,15 +22,15 @@ bool MyCustomLable::event(QEvent *myEvent)
             if(e->button() == Qt::LeftButton)
             {
                 emit  myLabelClicked(true,
-                                     e->position().x() ,
-                                     e->position().y()
+                                     e->pos().x() ,
+                                     e->pos().y()
                                      );
             }
             else
             {
                 emit  myLabelClicked(false,
-                                     e->position().x() ,
-                                     e->position().y()
+                                     e->pos().x() ,
+                                     e->pos().y()
                                      );
 
             }
