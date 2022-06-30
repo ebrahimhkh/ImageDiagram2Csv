@@ -31,6 +31,8 @@ private:
     int cnt_border;
     int cnt_values;
 
+    QPixmap *qpix;
+
     void findValue(int x,int y,float *p1,float *p2);
 };
 #endif // MAINWINDOW_H

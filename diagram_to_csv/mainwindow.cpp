@@ -3,6 +3,7 @@
 #include <QFileDialog>
 #include <QLabel>
 #include <QDebug>
+#include <QImageReader>
 
 
 MainWindow::MainWindow(QWidget *parent)
@@ -11,7 +12,7 @@ MainWindow::MainWindow(QWidget *parent)
 {
     ui->setupUi(this);
     connect(ui->label, SIGNAL(myLabelClicked(bool,int ,int )),
-            this, SLOT(slotLabelClicked(bool,int ,int)));
+            this     , SLOT(slotLabelClicked(bool,int ,int ))    );
     cnt_border = 0;
     cnt_values  = 0;
 }
@@ -78,9 +79,33 @@ void MainWindow::on_pushButton_clicked()
     QString fileName = QFileDialog::getOpenFileName(this,
         tr("Open Image"), "c:\\", tr("Image Files (*.png *.jpg *.bmp)"));
 
-    ui->label->setPixmap( QPixmap( fileName ) );
+    qDebug()<<fileName;
+
+    QImageReader read(fileName);
+    QImage image = read.read();
+    QPixmap pixmap;
+//    pixmap.fromImage(image);
+
+
+//    if(  ==false)
+//    {
+//        this->setWindowTitle(QString("loaded image [%0] {Failed}").
+//                             arg(fileName) );
+//    }
+//    else
+//    this->setWindowTitle(QString("loaded image[%0] [%1,%2]   %3").
+//                         arg(fileName).
+//                         arg(pixmap.width()).
+//                         arg(pixmap.height()).
+//                         arg(pixmap.depth())
+//                         );
+
+    ui->label->setPixmap( pixmap.fromImage(image) );
+//    ui->label->setPixmap( image. );
     ui->label->setScaledContents( true );
     ui->label->setSizePolicy( QSizePolicy::Ignored, QSizePolicy::Ignored );
+
+    ui->label->repaint();
 }
 
 

@@ -4,9 +4,8 @@
 #include <QMouseEvent>
 
 MyCustomLable::MyCustomLable(QWidget* parent) : QLabel(parent)
-{   
-    connect(this, SIGNAL(myLabelClicked(bool,int ,int )),
-            this, SLOT(slotLabelClicked(bool,int ,int)));
+{
+
 }
 
 
