@@ -26,6 +26,8 @@ private slots:
 
     void on_listWidget_currentItemChanged(QListWidgetItem *current, QListWidgetItem *previous);
 
+    void on_pushButton_3_clicked();
+
 private:
     Ui::MainWindow *ui;
     int cnt_border;

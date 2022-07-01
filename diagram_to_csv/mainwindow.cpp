@@ -164,3 +164,17 @@ void MainWindow::findValue(int x, int y, float *p1, float *p2)
 
 }
 
+
+void MainWindow::on_pushButton_3_clicked()
+{
+    QFile file("Output.csv");
+    QTextStream txt(&file);
+    QString str;
+    file.open(QIODevice::WriteOnly);
+    for (int i=0;i<ui->listWidget_2->count();i++) {
+        str = ui->listWidget_2->item(i)->text();
+        txt << str << ";\n\r";
+    }
+    txt.flush();
+    file.close();
+}
